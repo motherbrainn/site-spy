@@ -19,6 +19,11 @@ const emailConfig = {
 // Selector for the portion of the website to compare
 const querySelector = process.env.QUERY_SELECTOR;
 
+function hoursToMilliseconds(hours) {
+  const milliseconds = hours * 60 * 60 * 1000;
+  return milliseconds;
+}
+
 // Function to send email
 async function sendEmail() {
   const transporter = nodemailer.createTransport(emailConfig);
@@ -79,5 +84,5 @@ async function checkWebsite() {
 }
 
 // Start checking the website at the specified interval
-const checkInterval = process.env.CHECK_INTERVAL || 60000; // Default interval is 1 minute
+const checkInterval = hoursToMilliseconds(process.env.CHECK_INTERVAL) || 60000; // Default interval is 1 minute
 setInterval(checkWebsite, checkInterval);
