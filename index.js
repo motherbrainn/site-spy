@@ -38,6 +38,7 @@ async function sendEmail() {
     text: `The ${
       querySelector ? "specified portion of the website" : "entire website"
     } ${websiteUrl} has changed since the last visit.`,
+    priority: "high",
   };
 
   try {
