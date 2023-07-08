@@ -15,7 +15,7 @@ const emailConfig = {
     user: "apikey",
     pass: process.env.SENDGRID_API_KEY,
   },
-  from: process.env.FROM_USERNAME,
+  from: process.env.FROM_EMAIL_ADDRESS,
   recipients: process.env.EMAIL_RECIPIENTS.split(","),
 };
 

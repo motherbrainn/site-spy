@@ -5,7 +5,7 @@ Set env variables to scrape a website at a given interval and compare current sc
 ## Env Variables
 
 WEBSITE_URL: The URL of the website you want to monitor.  
-FROM_USERNAME: The email address to be used for sending emails.  
+FROM_EMAIL_ADDRESS: The email address to be used for sending emails.  
 SENDGRID_API_KEY: API Key from sendgrid  
 EMAIL_RECIPIENTS: Comma-separated email addresses of the recipients.  
 QUERY_SELECTOR: (Optional) The query selector for the specific portion of the website to compare.  
