@@ -6,13 +6,16 @@ require("dotenv").config();
 // Retrieve website URL from environment variable
 const websiteUrl = process.env.WEBSITE_URL;
 
+// This is set up to work with send grid
 // Retrieve email configuration from environment variables
 const emailConfig = {
-  service: process.env.EMAIL_SERVICE,
+  host: "smtp.sendgrid.net",
+  port: 587,
   auth: {
-    user: process.env.EMAIL_USERNAME,
-    pass: process.env.EMAIL_PASSWORD,
+    user: "apikey",
+    pass: process.env.SENDGRID_API_KEY,
   },
+  from: process.env.FROM_USERNAME,
   recipients: process.env.EMAIL_RECIPIENTS.split(","),
 };
 
@@ -29,7 +32,7 @@ async function sendEmail() {
   const transporter = nodemailer.createTransport(emailConfig);
 
   const mailOptions = {
-    from: emailConfig.auth.user,
+    from: emailConfig.from,
     to: emailConfig.recipients,
     subject: "Website Change Detected!",
     text: `The ${
